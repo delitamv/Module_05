@@ -63,7 +63,7 @@ public class CarDoor {
     }
 
     public void showInfo(){
-        System.out.print(this.statusDoor);
-        System.out.println(this.statusWindow);
+        System.out.println("State door: " + statusDoor);
+        System.out.println("State window: " + statusWindow);
     }
 }

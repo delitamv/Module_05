@@ -1,15 +1,17 @@
 package firsteSuperCar;
 
 public class Car {
-    private String date;     //дата производства (неизменна после создания объекта)
-    private String typeEngine;      //тип двигателя
-    private int maxSpeed;        //максимальная скорость машины (если она новая)
-    private int accelerationTime;   //время разгона до 100км/ч
-    private int passengerCapacity;   // пассажировместимость
-    private int countOfPassengersInside;  //кол-во пассажиров внутри в данный момент
-    private double currentSpeed;   //текущая скорость
-    private CarWheel[] wheels;                      //массив колес
-    private CarDoor[] doors;        //массив дверей
+    private String date;
+    private String typeEngine;
+    private int maxSpeed;
+    private int accelerationTime;
+    private int passengerCapacity;
+    private int countOfPassengersInside;
+    private double currentSpeed;
+    private CarWheel[] wheels = new CarWheel[MAX_WHEELS];
+    private CarDoor[] doors = new CarDoor[MAX_DOORS];
+    private static final int MAX_DOORS = 4;
+    private static final int MAX_WHEELS = 5;
 
     public Car(String date) {
         this.date = date;
@@ -23,6 +25,12 @@ public class Car {
         this.passengerCapacity = passengerCapacity;
         this.countOfPassengersInside = numberOfPassengersInside;
         this.currentSpeed = currentSpeed;
+        for(int i = 0; i < wheels.length; i++) {
+            wheels[i] = new CarWheel();
+        }
+        for(int i = 0; i < doors.length; i++) {
+            doors[i] = new CarDoor();
+        }
 
     }
     //Change the current speed
@@ -87,7 +95,7 @@ public class Car {
         System.out.println("Date of production of the machine: " + date);
         System.out.println("Type of engine: " + typeEngine);
         System.out.println("The maximum speed of a new car: " + maxSpeed);
-        System.out.println("Time of acceleration up to 100km / h: " + accelerationTime);
+        System.out.println("Time of acceleration up to 100km: " + accelerationTime);
         System.out.println("Capacity of passengers: " + passengerCapacity);
         System.out.println("Count of passengers at the moment: " + countOfPassengersInside);
         System.out.println("Current speed: " + currentSpeed);
